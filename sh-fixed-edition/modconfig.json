@@ -1,0 +1,26 @@
+{
+  "ModId": "sonicheroes.utils.fixededition",
+  "ModName": "SH:FE",
+  "ModAuthor": "DonutStopGaming, Kell, Ryan Bevins",
+  "ModVersion": "1.00",
+  "ModDescription": "Compilation of code-based fixes and improvements regarding graphical/gameplay bugs and overall broken code for Sonic Heroes, alongside model/texture fixes.",
+  "ModDll": "sh-fixed-edition.dll",
+  "ModIcon": "preview.png",
+  "ModR2RManagedDll32": "x86/sh-fixed-edition.dll",
+  "ModR2RManagedDll64": "x64/sh-fixed-edition.dll",
+  "ModNativeDll32": "",
+  "ModNativeDll64": "",
+  "IsLibrary": false,
+  "ReleaseMetadataFileName": "sonicheroes.utils.fixededition.ReleaseMetadata.json",
+  "PluginData": {},
+  "IsUniversalMod": false,
+  "ModDependencies": [
+    "reloaded.sharedlib.hooks",
+    "reloaded.universal.redirector"
+],
+  "OptionalDependencies": [],
+  "SupportedAppId": [
+    "tsonic_win.exe"
+  ],
+  "ProjectUrl": ""
+}
