@@ -111,23 +111,45 @@ namespace sh_fixed_edition.Configuration
 
         */
 
-        [Category("Configs")]
+        [Category("Common Settings")]
         [DisplayName("Unfrozen Title Screen")]
         [Description("Makes the title screen animation continuous instead of freezing after\n pressing START Button/ENTER Key.")]
         [DefaultValue(true)]
         public bool TitleScr { get; set; } = true;
 
-        [Category("Configs")]
+        [Category("Common Settings")]
         [DisplayName("Demo Gameplay")]
         [Description("Enables Demo Mode that is leftover in the Windows port of the game.\nGameCube and PlayStation ports contain Demo Gameplay by default.")]
         [DefaultValue(true)]
         public bool DemoMode { get; set; } = true;
 
-        [Category("Configs")]
+        [Category("Character Settings")]
+        [DisplayName("Shadow's Chaos Emerald")]
+        [Description("Chaos Emerald from Chaos Inferno has different blendings\n compared to other ports. Not to mention its model and\n blendings are completely different from SA2.\n\n'Console Style' brings the same blendings as GC/XB/PS.\n'SA2 Style' brings a similar approach to SA2's emeralds.\n\nNote: Now the emerald's model by default is changed to\n use SA2's model as well")]
+        [DefaultValue(TDarkChaosEme.Untouched)]
+        public TDarkChaosEme TDarkChaosEmeEnum { get; set; } = TDarkChaosEme.Untouched;
+
+        public enum TDarkChaosEme
+        {
+            [Display(Name = "Original/Untouched")]
+            Untouched,
+            [Display(Name = "Console Style")]
+            Console,
+            [Display(Name = "Sonic Adventure 2 Style")]
+            SA2
+        }
+
+        [Category("Common Settings")]
         [DisplayName("No Exit Prompt")]
         [Description("Kell is a God.")]
         [DefaultValue(true)]
         public bool Exit { get; set; } = true;
+
+        [Category("Stage Settings")]
+        [DisplayName("Texture Pattern Animation")]
+        [Description("Makes use of texture patern animation (similar to PS2 port) rather\n than indirect shaders.")]
+        [DefaultValue(false)]
+        public bool IndirectOFF { get; set; } = false;
 
     }
 

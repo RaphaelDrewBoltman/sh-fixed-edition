@@ -1,10 +1,11 @@
 ﻿using Reloaded.Hooks.ReloadedII.Interfaces;
-using Reloaded.Mod.Interfaces;
 using Reloaded.Memory;
 using Reloaded.Memory.Interfaces;
-using sh_fixed_edition.Template;
+using Reloaded.Mod.Interfaces;
 using sh_fixed_edition.Configuration;
+using sh_fixed_edition.Template;
 using System;
+using static sh_fixed_edition.Configuration.Config;
 
 namespace sh_fixed_edition
 {
@@ -95,6 +96,14 @@ namespace sh_fixed_edition
                 0x14, 0xE8, 0xE3, 0xCA
             };
             Memory.Instance.SafeWrite(0x63FEC7, ShTornado);
+
+            // Shadow's Chaos Emerald
+            /// Chaos Emerald from Chaos Inferno has different blendings compared to other ports. Not to mention its model and blending is vastly different from SA2.
+            Config_TDarkChaosEme(_configuration.TDarkChaosEmeEnum);
+
+            // Chaotix Recital's Wrong Spotlight Colors
+            /// Spotlights for Team Chaotix's Team Blast are seemingly using one color (all purple) instead of three (purple, orange and green).
+            //////   !!! WIP !!!
 
             // Fade-Out Effects
             /// Unlike on consoles, Some effects don't fade-out on PC.
@@ -205,6 +214,10 @@ namespace sh_fixed_edition
             /// Missing feature on PC, causing characters to go faster on loops.
             //////   !!! WIP !!!
 
+            // TXC (Texture Pattern Animation)
+            /// Makes use of texture animation (similar to PS2 port) rather than indirect shaders.
+            Config_IndirectOFF(_configuration.IndirectOFF);
+
             // Grand Metropolis Energy Pipes
             /// The game does not scan for the high quality object archive for the lava indirect effects.  (?, no idea what this changes actually lol)
             byte[] stg03Pipe1 = { 
@@ -284,6 +297,10 @@ namespace sh_fixed_edition
             /// Steps from the Storage Tank don't have their flicker effect.
             //////   !!! WIP !!!
 
+            // Rail Grinding Effect
+            /// Unused in the game completely as well, there are 3 models for a rail grinding effect (EF_GLIND0.DFF, EF_GLIND1.DFF & EF_GLIND2.DFF), similar to Sonic Adventure 2.
+            //////   !!! WIP !!!
+
             // Frog Forest Root Ball
             /// The vertex paint disappears from the model.  (?, no idea what this changes actually lol)
             byte[] stg09RootBall = {
@@ -294,19 +311,21 @@ namespace sh_fixed_edition
             // Transparent Frog feet
             /// The frog's feet in Frog Forest and Lost Jungle are see-through when in deep touch with geometry.
             /////   !!! BROKEN, NEEDS BETTER CODE !!!
-            /// byte[] stg09FrogFeet1 = {
-            ///    0xC7, 0x05, 0xE4, 0xAB, 0x7B,
-            ///    0x00, 0x70, 0x2E, 0x40, 0x00
-            /// };
-            /// Memory.Instance.SafeWrite(0x4EE3ED, stg09FrogFeet1);
-            /// byte[] stg09FrogFeet2 = {
-            /// 0x12
-            /// };
-            /// Memory.Instance.SafeWrite(0x868A20, stg09FrogFeet2);
-            /// byte[] stg09FrogFeet3 = {
-            /// 0x12
-            /// };
-            /// Memory.Instance.SafeWrite(0x868A44, stg09FrogFeet3);
+            /* 
+            byte[] stg09FrogFeet1 = {
+                0xC7, 0x05, 0xE4, 0xAB, 0x7B,
+                0x00, 0x70, 0x2E, 0x40, 0x00
+            };
+            Memory.Instance.SafeWrite(0x4EE3ED, stg09FrogFeet1);
+            byte[] stg09FrogFeet2 = {
+                0x12
+            };
+            Memory.Instance.SafeWrite(0x868A20, stg09FrogFeet2);
+            byte[] stg09FrogFeet3 = {
+                0x12
+            };
+            Memory.Instance.SafeWrite(0x868A44, stg09FrogFeet3);
+            */
 
             // Final Fortress UFO Sign light
             /// Fading light arrow animations are missing. (yet does not affect Egg Fleet's UFO!)
@@ -349,6 +368,7 @@ namespace sh_fixed_edition
 
             // Final Fortress Laser Beam Indirect Effects
             /// Similar Effect that can be found on the GameCube port.
+            /* NOW USED FOR TXC CONIFG TOGGLE !!!
             byte[] stg14LaserC1 = {
                 0x50
             };
@@ -365,6 +385,7 @@ namespace sh_fixed_edition
                 0x50
             };
             Memory.Instance.SafeWrite(0x71AB79, stg14LaserC4);
+            */
 
             // Final Fortress Laser Beam Disabled Backface Culling
             /// Backface Culling is rendered as 'front' instead of 'none', making the laser beam a bit incomplete.
@@ -377,6 +398,10 @@ namespace sh_fixed_edition
             // Boss Defeat Explosion
             /// Explosion particles are missing when defeating a boss (Egg Hawk and Egg Albatoross), present on the GameCube port.
             //////   !!! WIP !!!
+
+            // Missing Logos on Credits
+            /// ADX and SofDec logos are missing in the game's code. Adding them to the credits text file (or porting the same file from GC/XB to PC) will cause a crash.
+            //////  !!! WIP !!!
 
             // No Exit Prompt
             ///! Kell is a God.
@@ -426,6 +451,88 @@ namespace sh_fixed_edition
             }
         }
 
+        // Shadow's Chaos Emerald
+        private void Config_TDarkChaosEme(TDarkChaosEme selection)
+        {
+            switch (selection)
+            {
+                case TDarkChaosEme.Untouched:
+                default:
+                    // Do nothing.
+                break;
+                case TDarkChaosEme.Console:
+                    Memory.Instance.SafeWrite(0x5BDE87, new byte[] { 0x05 });
+                    Memory.Instance.SafeWrite(0x5BDE90, new byte[] { 0x02 });
+                    Memory.Instance.SafeWrite(0x5BDE99, new byte[] { 0x01 });
+                    Memory.Instance.SafeWrite(0x5BDEA5, new byte[] { 0x00 });
+                break;
+                case TDarkChaosEme.SA2:
+                    Memory.Instance.SafeWrite(0x5BDE87, new byte[] { 0x05 });
+                    Memory.Instance.SafeWrite(0x5BDE90, new byte[] { 0x06 });
+                    Memory.Instance.SafeWrite(0x5BDE99, new byte[] { 0x02 });
+                    Memory.Instance.SafeWrite(0x5BDEA5, new byte[] { 0x01 });
+                    break;
+            }
+        }
+
+        // TXC
+        private void Config_IndirectOFF(bool enabled)
+        {
+            if (enabled)
+            {
+                byte[] TXC1 = {
+                0x78
+                };
+                Memory.Instance.SafeWrite(0x749493, TXC1);
+                byte[] TXC2 = {
+                0x78
+                };
+                Memory.Instance.SafeWrite(0x76E6FA, TXC2);
+                byte[] TXC3 = {
+                0x78
+                };
+                Memory.Instance.SafeWrite(0x773227, TXC3);
+
+                //Laser Beam Indirect Effects
+                byte[] stg14LaserC1 = {
+                0x40
+                };
+                Memory.Instance.SafeWrite(0x71A800, stg14LaserC1);
+                byte[] stg14LaserC2 = {
+                0x40
+                };
+                Memory.Instance.SafeWrite(0x71A950, stg14LaserC2);
+                byte[] stg14LaserC3 = {
+                0x40
+                };
+                Memory.Instance.SafeWrite(0x71AAA0, stg14LaserC3);
+                byte[] stg14LaserC4 = {
+                0x40
+                };
+                Memory.Instance.SafeWrite(0x71AB79, stg14LaserC4);
+            }
+            else
+            {
+                //Laser Beam Indirect Effects
+                byte[] stg14LaserC1 = {
+                0x50
+            };
+                Memory.Instance.SafeWrite(0x71A800, stg14LaserC1);
+                byte[] stg14LaserC2 = {
+                0x50
+            };
+                Memory.Instance.SafeWrite(0x71A950, stg14LaserC2);
+                byte[] stg14LaserC3 = {
+                0x50
+            };
+                Memory.Instance.SafeWrite(0x71AAA0, stg14LaserC3);
+                byte[] stg14LaserC4 = {
+                0x50
+            };
+                Memory.Instance.SafeWrite(0x71AB79, stg14LaserC4);
+            }
+        }
+
         // No Exit Prompt
         private void Config_Exit(bool enabled)
         {
@@ -450,6 +557,12 @@ namespace sh_fixed_edition
 
             if (_configuration.DemoMode != configuration.DemoMode)
                 Config_DemoMode(configuration.DemoMode);
+
+            Config_TDarkChaosEme(configuration.TDarkChaosEmeEnum);
+            _configuration = configuration;
+
+            if (_configuration.IndirectOFF != configuration.IndirectOFF)
+                Config_IndirectOFF(configuration.IndirectOFF);
 
             if (_configuration.Exit != configuration.Exit)
                 Config_DemoMode(configuration.Exit);

@@ -2,7 +2,7 @@
   "ModId": "sonicheroes.utils.fixededition",
   "ModName": "SH:FE",
   "ModAuthor": "DonutStopGaming, Kell, Ryan Bevins",
-  "ModVersion": "1.00",
+  "ModVersion": "1.02",
   "ModDescription": "Compilation of code-based fixes and improvements regarding graphical/gameplay bugs and overall broken code for Sonic Heroes, alongside model/texture fixes.",
   "ModDll": "sh-fixed-edition.dll",
   "ModIcon": "preview.png",
