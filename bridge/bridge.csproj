@@ -14,10 +14,12 @@
          If you set this to true, trimming will be enabled when you publish the mod.
          Test trimming with: `BuildLinked.ps1` in PowerShell. -->
     <ReloadedILLink>false</ReloadedILLink>
+    <PackageOutputPath>$(RELOADEDIIMODS)\sh-fixed-edition</PackageOutputPath>
+    <BaseOutputPath>$(RELOADEDIIMODS)\sh-fixed-edition</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <ReloadedLinkRoots Include="sh_fixed_edition" />
+    <ReloadedLinkRoots Include="bridge" />
     <!-- Add assemblies to be trimmed. You might need to add their dependencies too!  -->
     <!-- <ReloadedLinkAssemblies Include="Reloaded.Memory" /> -->
   </ItemGroup>
@@ -26,7 +28,7 @@
   <Import Project="Reloaded.Checks.targets" />
 
   <ItemGroup>
-    <None Remove="ModConfig.json" />
+    <None Remove="modconfig.json" />
     <None Remove="Publish.ps1" />
     <None Remove="BuildLinked.ps1" />
     <None Remove="Reloaded.Trimming.targets" />
@@ -44,8 +46,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="8.0.8" />
-    <PackageReference Include="Reloaded.Hooks.Definitions" Version="1.11.0" />
-    <PackageReference Include="Reloaded.Memory" Version="9.4.2" />
     <PackageReference Include="Reloaded.Mod.Interfaces" Version="2.4.0" ExcludeAssets="runtime" />
     <PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.9.0" />
   </ItemGroup>

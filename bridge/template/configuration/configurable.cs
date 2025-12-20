@@ -1,9 +1,9 @@
-﻿using Reloaded.Mod.Interfaces;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Reloaded.Mod.Interfaces;
 
-namespace sh_fixed_edition.Template.Configuration
+namespace bridge.Template.Configuration
 {
     public class Configurable<TParentType> : IUpdatableConfigurable where TParentType : Configurable<TParentType>, new()
     {

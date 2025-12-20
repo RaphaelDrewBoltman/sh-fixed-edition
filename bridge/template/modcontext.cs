@@ -1,8 +1,8 @@
-﻿using Reloaded.Mod.Interfaces;
-using sh_fixed_edition.Configuration;
+﻿using bridge.Configuration;
+using Reloaded.Mod.Interfaces;
 using IReloadedHooks = Reloaded.Hooks.ReloadedII.Interfaces.IReloadedHooks;
 
-namespace sh_fixed_edition.Template
+namespace bridge.Template
 {
     /// <summary>
     /// Represents information passed in from the mod loader template to the implementing mod.

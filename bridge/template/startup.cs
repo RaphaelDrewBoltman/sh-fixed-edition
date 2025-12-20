@@ -3,13 +3,13 @@
  * to make it easier to upgrade to newer versions of the template.
 */
 
-using sh_fixed_edition.Template.Configuration;
-using sh_fixed_edition.Configuration;
+using bridge.Configuration;
+using bridge.Template.Configuration;
 using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
 using Reloaded.Mod.Interfaces.Internal;
 
-namespace sh_fixed_edition.Template
+namespace bridge.Template
 {
     public class Startup : IMod
     {

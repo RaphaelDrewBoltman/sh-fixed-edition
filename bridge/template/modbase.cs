@@ -1,6 +1,6 @@
-﻿using sh_fixed_edition.Configuration;
+﻿using bridge.Configuration;
 
-namespace sh_fixed_edition.Template
+namespace bridge.Template
 {
     /// <summary>
     /// Base class for implementing mod functionality.

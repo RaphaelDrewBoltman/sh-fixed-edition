@@ -1,7 +1,7 @@
-﻿using Reloaded.Mod.Interfaces;
-using sh_fixed_edition.Configuration;
+﻿using bridge.Configuration;
+using Reloaded.Mod.Interfaces;
 
-namespace sh_fixed_edition.Template.Configuration
+namespace bridge.Template.Configuration
 {
     public class Configurator : IConfiguratorV3
     {

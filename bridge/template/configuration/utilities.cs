@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace sh_fixed_edition.Template.Configuration
+namespace bridge.Template.Configuration
 {
     public class Utilities
     {

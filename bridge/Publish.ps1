@@ -162,8 +162,8 @@ param (
     $UseScriptDirectory=$True,
 
     ## => User Config <= ## 
-    $ProjectPath = "FixedEdition.csproj",
-    $PackageName = "FixedEdition",
+    $ProjectPath = "bridge.csproj",
+    $PackageName = "bridge",
     $PublishOutputDir = "Publish/ToUpload",
 
     ## => User: Delta Config
@@ -180,7 +180,7 @@ param (
 
     $GameBananaItemId = 333681, # From mod page URL.
 
-    $NuGetPackageId = "FixedEdition",
+    $NuGetPackageId = "bridge",
     $NuGetFeedUrl = "http://packages.sewer56.moe:5000/v3/index.json",
     $NuGetAllowUnlisted = $False,
 

@@ -1,9 +1,9 @@
-﻿using sh_fixed_edition.Template.Configuration;
+﻿using bridge.Template.Configuration;
 using Reloaded.Mod.Interfaces.Structs;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace sh_fixed_edition.Configuration
+namespace bridge.Configuration
 {
     public class Config : Configurable<Config>
     {
