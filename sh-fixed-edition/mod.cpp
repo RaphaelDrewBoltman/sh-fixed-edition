@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "MemAccess.h"
+#include "config.h"
 #include <iostream>
 #include <fstream>
 #include <windows.h>
@@ -82,11 +83,6 @@ void ShTornado()
 
 // Shadow's Chaos Emerald
 /// Chaos Emerald from Chaos Inferno has different blendings compared to other ports. Not to mention its model and blending is vastly different from SA2.
-enum class TDarkChaosEme {
-    Untouched,
-    Console,
-    SA2
-};
 void conifg_TDarkChaosEme(TDarkChaosEme selection)
 {
     switch (selection)
@@ -94,19 +90,19 @@ void conifg_TDarkChaosEme(TDarkChaosEme selection)
     case TDarkChaosEme::Untouched:
     default:
         // Do nothing.
-        break;
+    break;
     case TDarkChaosEme::Console:
         WriteData((char*)0x5BDE87, (char)0x05);
         WriteData((char*)0x5BDE90, (char)0x02);
         WriteData((char*)0x5BDE99, (char)0x01);
         WriteData((char*)0x5BDEA5, (char)0x00);
-        break;
+    break;
     case TDarkChaosEme::SA2:
         WriteData((char*)0x5BDE87, (char)0x05);
         WriteData((char*)0x5BDE90, (char)0x06);
         WriteData((char*)0x5BDE99, (char)0x02);
         WriteData((char*)0x5BDEA5, (char)0x01);
-        break;
+    break;
     }
 }
 
@@ -456,21 +452,21 @@ void Exit(bool enabled)
 
 extern "C"
 {
-    __declspec(dllexport) void InitMod()
+    __declspec(dllexport) void InitMod(Config config)
     {
-        TitleScr(true);
-        DemoMode(true);
+        TitleScr(config.TitleScr);
+        DemoMode(config.DemoMode);
         VoiceTimerRange_TSonic();
         SpdDamJmp();
         ShTornado();
-        conifg_TDarkChaosEme(TDarkChaosEme::Untouched);
+        conifg_TDarkChaosEme(config.TDarkChaosEmeEnum);
         SignalFlick();
 		BobCrown();
-        IndirectOFF(false);
+        IndirectOFF(config.IndirectOFF);
 		stg03Pipe();
 		stg03PipeGlass();
 		stg09RootBall();
 		stg14UFO();
-		Exit(true);
+		Exit(config.Exit);
     }
 }

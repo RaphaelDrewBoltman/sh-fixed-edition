@@ -42,8 +42,18 @@ namespace bridge
         /// </summary>
         private readonly IModConfig _modConfig;
 
+        [StructLayout(LayoutKind.Sequential)]
+        public struct ConfigC
+        {
+            [MarshalAs(UnmanagedType.I1)] public bool TitleScr;
+            [MarshalAs(UnmanagedType.I1)] public bool DemoMode;
+            public int TDarkChaosEmeEnum;
+            [MarshalAs(UnmanagedType.I1)] public bool IndirectOFF;
+            [MarshalAs(UnmanagedType.I1)] public bool Exit;
+        }
+
         [DllImport("sh-fixed-edition.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void InitMod();
+        public static extern void InitMod(ref ConfigC config);
 
         public Mod(ModContext context)
         {
@@ -55,7 +65,15 @@ namespace bridge
             _modConfig = context.ModConfig;
 
 
-            InitMod();
+            var config = new ConfigC
+            {
+                TitleScr = _configuration.TitleScr,
+                DemoMode = _configuration.DemoMode,
+                TDarkChaosEmeEnum = 0,
+                IndirectOFF = _configuration.IndirectOFF,
+                Exit = _configuration.Exit
+            };
+            InitMod(ref config);
 
             //!
         }

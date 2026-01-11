@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="config.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="FunctionHook.h" />
     <ClInclude Include="MemAccess.h" />

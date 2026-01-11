@@ -2,6 +2,7 @@
 using Reloaded.Mod.Interfaces.Structs;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace bridge.Configuration
 {
@@ -132,7 +133,7 @@ namespace bridge.Configuration
         public enum TDarkChaosEme
         {
             [Display(Name = "Original/Untouched")]
-            Untouched,
+            Untouched = 0,
             [Display(Name = "Console Style")]
             Console,
             [Display(Name = "Sonic Adventure 2 Style")]
@@ -150,7 +151,6 @@ namespace bridge.Configuration
         [Description("Makes use of texture patern animation (similar to PS2 port) rather\n than indirect shaders.")]
         [DefaultValue(false)]
         public bool IndirectOFF { get; set; } = false;
-
     }
 
     /// <summary>
