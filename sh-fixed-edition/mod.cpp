@@ -3,6 +3,7 @@
 #include "MemAccess.h"
 #include "config.h"
 #include "FloorAlignment.h"
+#include "ScreenScaling.h"
 #include <iostream>
 #include <fstream>
 #include <windows.h>
@@ -471,6 +472,7 @@ extern "C"
         VoiceTimerRange_TSonic();
         SpdDamJmp();
         RestorePathFloorAlignment();
+        RestoreScreenScaling();
         ShTornado();
         conifg_TDarkChaosEme(config->TDarkChaosEmeEnum);
         SignalFlick();
