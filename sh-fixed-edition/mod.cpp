@@ -460,21 +460,21 @@ void Exit(bool enabled)
 
 extern "C"
 {
-    __declspec(dllexport) void InitMod(ConfigData config)
+    __declspec(dllexport) void InitMod(ConfigData* config)
     {
-        TitleScr(config.TitleScr);
-        DemoMode(config.DemoMode);
+        TitleScr(config->TitleScr);
+        DemoMode(config->DemoMode);
         VoiceTimerRange_TSonic();
         SpdDamJmp();
         ShTornado();
-        conifg_TDarkChaosEme(config.TDarkChaosEmeEnum);
+        conifg_TDarkChaosEme(config->TDarkChaosEmeEnum);
         SignalFlick();
 		BobCrown();
-        IndirectOFF(config.IndirectOFF);
+        IndirectOFF(config->IndirectOFF);
 		stg03Pipe();
 		stg03PipeGlass();
 		stg09RootBall();
 		stg14UFO();
-		Exit(config.Exit);
+		Exit(config->Exit);
     }
 }

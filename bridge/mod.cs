@@ -69,7 +69,7 @@ namespace bridge
             {
                 TitleScr = _configuration.TitleScr,
                 DemoMode = _configuration.DemoMode,
-                TDarkChaosEmeEnum = 0,
+                TDarkChaosEmeEnum = (int)_configuration.TDarkChaosEmeEnum,
                 IndirectOFF = _configuration.IndirectOFF,
                 Exit = _configuration.Exit
             };

@@ -10,6 +10,6 @@ struct ConfigData {
 	bool TitleScr;
 	bool DemoMode;
 	TDarkChaosEme TDarkChaosEmeEnum = TDarkChaosEme::Untouched;
-	bool Exit;
 	bool IndirectOFF;
+	bool Exit;
 };
