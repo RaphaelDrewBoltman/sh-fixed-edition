@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "MenuCheese.h"
 #include "MemAccess.h"
 #include "config.h"
 #include <iostream>
@@ -462,6 +463,7 @@ extern "C"
 {
     __declspec(dllexport) void InitMod(ConfigData* config)
     {
+        RestoreMenuCheese();
         TitleScr(config->TitleScr);
         DemoMode(config->DemoMode);
         VoiceTimerRange_TSonic();

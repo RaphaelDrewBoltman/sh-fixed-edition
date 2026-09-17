@@ -27,6 +27,8 @@
     <ClInclude Include="MemAccess.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MenuCheese.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="MenuCheeseAssets.h"><Filter>Header Files</Filter></ClInclude>
     <ClInclude Include="config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -38,6 +40,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MenuCheese.cpp"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="mod.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
