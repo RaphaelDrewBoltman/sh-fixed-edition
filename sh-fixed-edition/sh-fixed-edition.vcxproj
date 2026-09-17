@@ -138,6 +138,7 @@
     <ClInclude Include="MenuCheese.h" />
     <ClInclude Include="MenuCheeseAssets.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="FloorAlignment.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="FunctionHook.h" />
     <ClInclude Include="MemAccess.h" />
@@ -146,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="mod.cpp" />
+    <ClCompile Include="FloorAlignment.cpp" />
     <ClCompile Include="MenuCheese.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

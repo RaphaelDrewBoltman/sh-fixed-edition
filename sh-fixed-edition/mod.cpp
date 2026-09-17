@@ -2,6 +2,7 @@
 #include "MenuCheese.h"
 #include "MemAccess.h"
 #include "config.h"
+#include "FloorAlignment.h"
 #include <iostream>
 #include <fstream>
 #include <windows.h>
@@ -468,6 +469,7 @@ extern "C"
         DemoMode(config->DemoMode);
         VoiceTimerRange_TSonic();
         SpdDamJmp();
+        RestorePathFloorAlignment();
         ShTornado();
         conifg_TDarkChaosEme(config->TDarkChaosEmeEnum);
         SignalFlick();
