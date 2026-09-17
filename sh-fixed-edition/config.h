@@ -6,10 +6,10 @@ enum class TDarkChaosEme {
 	SA2
 };
 
-struct Config {
-	bool TitleScr = false;
-	bool DemoMode = false;
+struct ConfigData {
+	bool TitleScr;
+	bool DemoMode;
 	TDarkChaosEme TDarkChaosEmeEnum = TDarkChaosEme::Untouched;
-	bool Exit = false;
-	bool IndirectOFF = false;
+	bool IndirectOFF;
+	bool Exit;
 };
