@@ -43,7 +43,7 @@ namespace bridge
         private readonly IModConfig _modConfig;
 
         [StructLayout(LayoutKind.Sequential)]
-        public struct ConfigC
+        public struct ConfigData
         {
             [MarshalAs(UnmanagedType.I1)] public bool TitleScr;
             [MarshalAs(UnmanagedType.I1)] public bool DemoMode;
@@ -53,7 +53,7 @@ namespace bridge
         }
 
         [DllImport("sh-fixed-edition.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void InitMod(ref ConfigC config);
+        public static extern void InitMod(ref ConfigData config);
 
         public Mod(ModContext context)
         {
@@ -65,7 +65,7 @@ namespace bridge
             _modConfig = context.ModConfig;
 
 
-            var config = new ConfigC
+            var config = new ConfigData
             {
                 TitleScr = _configuration.TitleScr,
                 DemoMode = _configuration.DemoMode,

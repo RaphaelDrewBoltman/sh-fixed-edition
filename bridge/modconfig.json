@@ -1,8 +1,8 @@
 {
   "ModId": "sonicheroes.utils.fixededition",
   "ModName": "SH:FE",
-  "ModAuthor": "DonutStopGaming, Kell",
-  "ModVersion": "1.03",
+  "ModAuthor": "DonutStopGaming, Kell, Raphael Drew Boltman",
+  "ModVersion": "2.00",
   "ModDescription": "Compilation of code-based fixes and improvements regarding graphical/gameplay bugs and overall broken code for Sonic Heroes, alongside model/texture fixes.",
   "ModDll": "bridge.dll",
   "ModIcon": "preview.png",

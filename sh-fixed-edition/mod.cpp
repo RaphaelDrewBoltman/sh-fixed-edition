@@ -46,7 +46,7 @@ void DemoMode(bool enable)
 
 // Menu Prompt/Credits Text Size
 /// The text on the menu prompts and credits don't resize properly, causing them to be smaller at bigger screen resolutions.
-////// !!! WIP !!!
+//////   !!! CHECK FWS LUA SCRIPT / SOON:tm: !!!
 
 // Knuckles Cut-Off Line
 /// Knuckles gets cut-off by the screen fade.
@@ -57,7 +57,7 @@ void VoiceTimerRange_TSonic()
 
 // Cheese on the Main Menu
 /// Cheese doesn't appear in the menu in every port. However, the PC port contains unused animations for his menu idling and lock-in pose.
-//////   !!! WIP !!!
+//////   !!! SOON:tm: !!!
 
 // Broken Env Map Lighting
 /// Environmental Maps don't get affected by stage lighting, making them still show and not blend in darker lightings.
@@ -65,7 +65,7 @@ void VoiceTimerRange_TSonic()
 
 // Speed Formation Damage Stun Fix
 /// Fixes the Damage Stun on Speed Formation Characters (Sonic/Super, Shadow, Amy, Espio).
-/// Courtesy of AkoSiRyan for finding the fix originally!
+/// Courtesy of Ryan Bevins for finding the fix originally!
 void SpdDamJmp()
 {
     WriteData((char*)0x5CF2DD, (char)0xEB);
@@ -221,13 +221,13 @@ void BobCrown()
     WriteData((void*)0x406FE0, BobCrown);
 }
 
-// Sun Lens Flare Size
+// Lens Flare Size
 /// Similar to the text on menu prompts and credits, the Lens Flare doesn't resize properly, causing the object to be smaller at bigger screen resolutions.
-//////   !!! WIP !!!
+//////   !!! CHECK FWS LUA SCRIPT/SOON:tm: !!!
 
 // Stage Speed Cap
 /// Missing feature on PC, causing characters to go faster on loops.
-//////   !!! WIP !!!
+//////   !!! FIXED, NEED TO PULL REQ !!!
 
 // TXC (Texture Pattern Animation)
 /// Makes use of texture animation (similar to PS2 port) rather than indirect shaders.
@@ -425,6 +425,14 @@ void stg14UFO()
 /// An effect that should appear before and during the laser beam activation, which is not rendered correctly.
 //////   !!! WIP !!!
 
+// Dark Chao Mouth
+/// Dark Chao's mouth is see-through.
+//////   !!! WIP !!!
+
+// XBOX Restart/Exit Prompts
+/// Present only on the XBOX port of the game, there are prompts that show after pressing the Restart or Exit buttons on a paused stage/special stage.
+//////   !!! WIP !!!
+
 // Boss Defeat Explosion
 /// Explosion particles are missing when defeating a boss (Egg Hawk and Egg Albatoross), present on the GameCube port.
 //////   !!! WIP !!!
@@ -434,7 +442,7 @@ void stg14UFO()
 //////  !!! WIP !!!
 
 // No Exit Prompt
-///! Kell is a God.
+/// Kell is a God.
 void Exit(bool enabled)
 {
     if (enabled)
@@ -452,7 +460,7 @@ void Exit(bool enabled)
 
 extern "C"
 {
-    __declspec(dllexport) void InitMod(Config config)
+    __declspec(dllexport) void InitMod(ConfigData config)
     {
         TitleScr(config.TitleScr);
         DemoMode(config.DemoMode);
