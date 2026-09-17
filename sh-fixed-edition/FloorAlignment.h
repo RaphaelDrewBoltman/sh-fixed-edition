@@ -27,7 +27,9 @@ inline void ConsoleFloorAlignment(const int32_t* previous, float* normal, float*
             roll+=0x8000; pitch=0x8000-pitch;
         }
         if ((previous[0]==0x4000 || previous[0]==0xc000) && pitch!=0x4000 && pitch!=0xc000)
-            yaw=previous[2]+yaw-roll;
+            // PC may revisit this transition with already-adjusted output angles.
+            // Anchor to the saved orientation so collision retries do not accumulate yaw.
+            yaw=previous[2]+previous[1]-roll;
     }
     degrees[0]=pitch*(360.0f/65536.0f);
     degrees[1]=yaw*(360.0f/65536.0f);
