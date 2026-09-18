@@ -113,7 +113,7 @@ static void Load()
 {
 	if (!loaded)
 	{
-		auto one = OneFileReader("playmodel/cheese.one");
+		auto one = OneFileReader("advertise/adv_pl_cheese.one");
 
 		textures = one.LoadTexDict("CHEESE.TXD");
 
@@ -176,6 +176,16 @@ static void __cdecl RenderCheese(void* player)
 		for (int axis = 0; axis < 3; ++axis)
 			matrix[12 + axis] += -3.5f * matrix[axis] - 4.0f * matrix[4 + axis];
 
+		// Set Cheese's story-menu starting yaw without cancelling the clip's turns.
+		// Rotate the basis only: the established placement must not orbit Cream.
+		constexpr float initialYaw = -145.0f * 3.14159265358979323846f / 180.0f;
+		const float c = std::cos(initialYaw), s = std::sin(initialYaw);
+		for (int axis = 0; axis < 3; ++axis) {
+			const float right = matrix[axis], forward = matrix[8 + axis];
+			matrix[axis] = c * right - s * forward;
+			matrix[8 + axis] = s * right + c * forward;
+		}
+		reinterpret_cast<unsigned*>(matrix)[3] &= ~0x20000u;
 		// Move the whole model toward the active camera along its projection rays.
 		// Scaling translation and basis together preserves screen position and size.
 		void* camera = At<void*>(*reinterpret_cast<void**>(0x8e0a4c), 0);
@@ -201,29 +211,7 @@ static void __cdecl RenderCheese(void* player)
 	Call<void*>(0x64c280, root);
 	Call<int>(0x6a8660, a->hierarchy);
 
-	if (pose == 3 && a->ballAnchor)
-	{
-		// The unused story lock-in clip turns node 1 away from the viewer.
-		// Cancel that local yaw on the model root, preserving the animated tilt.
-		const float* anchor = Call<const float*>(0x64c300, a->ballAnchor);
-		float* matrix = reinterpret_cast<float*>(static_cast<char*>(root) + 0x10);
-		float x = 0, z = 0;
-		for (int axis = 0; axis < 3; ++axis) {
-			x += anchor[8 + axis] * matrix[axis];
-			z += anchor[8 + axis] * matrix[8 + axis];
-		}
-		if (x * x + z * z > 0.00000001f) {
-			const float yaw = -std::atan2(x, z), c = std::cos(yaw), s = std::sin(yaw);
-			for (int axis = 0; axis < 3; ++axis) {
-				const float right = matrix[axis], forward = matrix[8 + axis];
-				matrix[axis] = c * right - s * forward;
-				matrix[8 + axis] = s * right + c * forward;
-			}
-			reinterpret_cast<unsigned*>(matrix)[3] &= ~0x20000u;
-			Call<void*>(0x64c280, root);
-			Call<int>(0x6a8660, a->hierarchy);
-		}
-	}
+
 
 	Call<void*>(0x66b4f0, a->clump);
 
