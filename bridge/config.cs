@@ -151,6 +151,12 @@ namespace bridge.Configuration
         [Description("Makes use of texture patern animation (similar to PS2 port) rather\n than indirect shaders.")]
         [DefaultValue(false)]
         public bool IndirectOFF { get; set; } = false;
+
+        [Category("Character Settings")]
+        [DisplayName("Show Cheese in menus")]
+        [Description("Display Cheese in team selection menus with the unused animations.")]
+        [DefaultValue(true)]
+        public bool MenuCheese { get; set; } = true;
     }
 
     /// <summary>

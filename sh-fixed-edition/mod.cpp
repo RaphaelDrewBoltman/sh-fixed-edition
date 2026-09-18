@@ -464,7 +464,8 @@ extern "C"
 {
     __declspec(dllexport) void InitMod(ConfigData* config)
     {
-        RestoreMenuCheese();
+        if (config->MenuCheese)
+            RestoreMenuCheese();
         TitleScr(config->TitleScr);
         DemoMode(config->DemoMode);
         VoiceTimerRange_TSonic();

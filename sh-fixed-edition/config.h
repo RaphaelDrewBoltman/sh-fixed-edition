@@ -12,4 +12,5 @@ struct ConfigData {
 	TDarkChaosEme TDarkChaosEmeEnum = TDarkChaosEme::Untouched;
 	bool IndirectOFF;
 	bool Exit;
+	bool MenuCheese;
 };

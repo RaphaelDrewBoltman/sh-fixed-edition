@@ -50,6 +50,7 @@ namespace bridge
             public int TDarkChaosEmeEnum;
             [MarshalAs(UnmanagedType.I1)] public bool IndirectOFF;
             [MarshalAs(UnmanagedType.I1)] public bool Exit;
+            [MarshalAs(UnmanagedType.I1)] public bool MenuCheese;
         }
 
         [DllImport("sh-fixed-edition.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -71,7 +72,8 @@ namespace bridge
                 DemoMode = _configuration.DemoMode,
                 TDarkChaosEmeEnum = (int)_configuration.TDarkChaosEmeEnum,
                 IndirectOFF = _configuration.IndirectOFF,
-                Exit = _configuration.Exit
+                Exit = _configuration.Exit,
+                MenuCheese = _configuration.MenuCheese,
             };
             InitMod(ref config);
 
