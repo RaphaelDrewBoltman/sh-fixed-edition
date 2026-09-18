@@ -21,18 +21,28 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FunctionHook.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MemAccess.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FloorAlignment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MenuCheese.h"><Filter>Header Files</Filter></ClInclude>
-    <ClInclude Include="MenuCheeseAssets.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="MenuCheese.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FastFunctionHook.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UsercallFunctionHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="renderware.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -46,8 +56,13 @@
     <ClCompile Include="FloorAlignment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuCheese.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="MenuCheese.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="mod.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FastFunctionHook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

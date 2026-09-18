@@ -135,17 +135,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FastFunctionHook.hpp" />
+    <ClInclude Include="helper.h" />
     <ClInclude Include="MenuCheese.h" />
-    <ClInclude Include="MenuCheeseAssets.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="FloorAlignment.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="FunctionHook.h" />
     <ClInclude Include="MemAccess.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="renderware.h" />
+    <ClInclude Include="UsercallFunctionHandler.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="FastFunctionHook.cpp" />
     <ClCompile Include="mod.cpp" />
     <ClCompile Include="FloorAlignment.cpp" />
     <ClCompile Include="MenuCheese.cpp" />
