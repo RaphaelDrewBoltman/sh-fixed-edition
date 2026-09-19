@@ -180,6 +180,7 @@ enum RpMatFXMaterialFlags
 };
 
 typedef char RwChar;
+typedef int8_t RwInt8;
 typedef uint8_t RwUInt8;
 typedef int32_t RwInt32;
 typedef uint16_t RwUInt16;

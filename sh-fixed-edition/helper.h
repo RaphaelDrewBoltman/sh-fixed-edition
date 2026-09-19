@@ -31,6 +31,15 @@ struct ONEFILE
 	int fileDataLength;
 };
 
+struct PtclPlayData {
+	RwInt8 ptclNum; // offset 0x0, size 0x1
+	RwInt8 endtime; // offset 0x1, size 0x1
+	RwInt16 timer; // offset 0x2, size 0x2
+	sAngle ang; // offset 0x4, size 0xC
+	RwV3d pos; // offset 0x10, size 0xC
+	RwV3d vec; // offset 0x1C, size 0xC
+};
+
 UsercallFunc(int, ONEFILE__CheckFileID, (ONEFILE* _this, const char* fname), (_this, fname), 0x42F280, rEAX, rEAX, rECX);
 UserpurgeFunc(void*, ONEFILE__OpenData, (ONEFILE* _this, RwUInt32 id, void* addressToDecompressTo), (_this, id, addressToDecompressTo), 0x42F340, rEAX, rEAX, stack4, stack4);
 UserpurgeFunc(RwBool, ONEFILE__LoadOneFile, (ONEFILE* _this, const char* fname), (_this, fname), 0x42F100, rEAX, rEAX, stack4);
@@ -38,6 +47,7 @@ UserpurgeFunc(RwBool, ONEFILE__ReleaseOneFile, (ONEFILE* _this), (_this), 0x42F2
 UserpurgeFunc(RpClump*, ONEFILE__LoadClump, (int id, void* dest, ONEFILE* _this), (id, dest, _this), 0x42F440, rEAX, rEAX, rECX, stack4);
 UserpurgeFunc(RwTexDictionary*, ONEFILE__LoadTexDictionary, (int id, void* dest, ONEFILE* _this), (id, dest, _this), 0x42F3C0, rEAX, rEAX, rECX, stack4);
 UserpurgeFunc(RtAnimAnimation*, ONEFILE__LoadAnimation, (int id, void* dest, ONEFILE* _this), (id, dest, _this), 0x42F600, rEAX, rEAX, rECX, stack4);
+UsercallFunc(RwInt32, LoadFile, (RwChar* fname, void* buff), (fname, buff), 0x41BDB0, rEAX, rEAX, stack4);
 
 class OneFileReader
 {

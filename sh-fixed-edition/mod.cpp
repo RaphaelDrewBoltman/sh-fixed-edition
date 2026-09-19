@@ -1,14 +1,15 @@
 #include "pch.h"
-#include "MenuCheese.h"
-#include "MemAccess.h"
-#include "config.h"
-#include "FloorAlignment.h"
 #include <iostream>
 #include <fstream>
 #include <windows.h>
 #include <fcntl.h>
 #include <io.h>
-
+#include "MemAccess.h"
+#include "renderware.h"
+#include "config.h"
+#include "MenuCheese.h"
+#include "FloorAlignment.h"
+#include "PtclPlay.h"
 
 // Unfrozen Title Screen
 /// Makes the title screen animation continuous instead of freezing after pressing START Button/ENTER Key.
@@ -481,5 +482,6 @@ extern "C"
 		stg09RootBall();
 		stg14UFO();
 		Exit(config->Exit);
+        PtclPlay();
     }
 }
