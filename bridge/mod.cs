@@ -47,10 +47,10 @@ namespace bridge
         {
             [MarshalAs(UnmanagedType.I1)] public bool TitleScr;
             [MarshalAs(UnmanagedType.I1)] public bool DemoMode;
+            [MarshalAs(UnmanagedType.I1)] public bool ADV_PL_Cheese;
             public int TDarkChaosEmeEnum;
             [MarshalAs(UnmanagedType.I1)] public bool IndirectOFF;
             [MarshalAs(UnmanagedType.I1)] public bool Exit;
-            [MarshalAs(UnmanagedType.I1)] public bool MenuCheese;
         }
 
         [DllImport("sh-fixed-edition.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -70,10 +70,10 @@ namespace bridge
             {
                 TitleScr = _configuration.TitleScr,
                 DemoMode = _configuration.DemoMode,
+                ADV_PL_Cheese = _configuration.ADV_PL_Cheese,
                 TDarkChaosEmeEnum = (int)_configuration.TDarkChaosEmeEnum,
                 IndirectOFF = _configuration.IndirectOFF,
                 Exit = _configuration.Exit,
-                MenuCheese = _configuration.MenuCheese,
             };
             InitMod(ref config);
 

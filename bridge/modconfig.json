@@ -6,8 +6,6 @@
   "ModDescription": "Compilation of code-based fixes and improvements regarding graphical/gameplay bugs and overall broken code for Sonic Heroes, alongside model/texture fixes.",
   "ModDll": "bridge.dll",
   "ModIcon": "preview.png",
-  "ModR2RManagedDll32": "",
-  "ModR2RManagedDll64": "",
   "ModNativeDll32": "",
   "ModNativeDll64": "",
   "IsLibrary": false,
@@ -16,6 +14,7 @@
   "IsUniversalMod": false,
   "ModDependencies": [
     "reloaded.sharedlib.hooks",
+    "reloaded.universal.fileemulationframework.heroes.one",
     "reloaded.universal.redirector"
 ],
   "OptionalDependencies": [],

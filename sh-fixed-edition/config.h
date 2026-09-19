@@ -9,8 +9,8 @@ enum class TDarkChaosEme {
 struct ConfigData {
 	bool TitleScr;
 	bool DemoMode;
+	bool ADV_PL_Cheese;
 	TDarkChaosEme TDarkChaosEmeEnum = TDarkChaosEme::Untouched;
 	bool IndirectOFF;
 	bool Exit;
-	bool MenuCheese;
 };

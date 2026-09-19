@@ -115,7 +115,7 @@ namespace bridge.Configuration
         [Category("Common Settings")]
         [DisplayName("Unfrozen Title Screen")]
         [Description("Makes the title screen animation continuous instead of freezing after\n pressing START Button/ENTER Key.")]
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool TitleScr { get; set; } = true;
 
         [Category("Common Settings")]
@@ -140,23 +140,24 @@ namespace bridge.Configuration
             SA2
         }
 
+        [Category("Character Settings")]
+        [DisplayName("Show Cheese in menus")]
+        [Description("Display Cheese in Team Selection Menus.")]
+        [DefaultValue(true)]
+        public bool ADV_PL_Cheese { get; set; } = true;
+
+        [Category("Stage Settings")]
+        [DisplayName("Indirect Shaders")]
+        [Description("Makes use of indirect shaders.\nDisabling this will use texture pattern animation (TXC, also\n similar to PS2 port).")]
+        [DefaultValue(true)]
+        public bool IndirectOFF { get; set; } = true;
+
         [Category("Common Settings")]
         [DisplayName("No Exit Prompt")]
         [Description("Kell is a God.")]
         [DefaultValue(true)]
         public bool Exit { get; set; } = true;
 
-        [Category("Stage Settings")]
-        [DisplayName("Texture Pattern Animation")]
-        [Description("Makes use of texture patern animation (similar to PS2 port) rather\n than indirect shaders.")]
-        [DefaultValue(false)]
-        public bool IndirectOFF { get; set; } = false;
-
-        [Category("Character Settings")]
-        [DisplayName("Show Cheese in menus")]
-        [Description("Display Cheese in team selection menus with the unused animations.")]
-        [DefaultValue(true)]
-        public bool MenuCheese { get; set; } = true;
     }
 
     /// <summary>

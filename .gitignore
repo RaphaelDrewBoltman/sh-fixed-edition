@@ -361,8 +361,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/sh-fixed-edition/FastFunctionHook.cpp
-/sh-fixed-edition/FastFunctionHook.hpp
-/sh-fixed-edition/FloorAlignment.cpp
-/sh-fixed-edition/FloorAlignment.h
-/sh-fixed-edition/FunctionHook.h
