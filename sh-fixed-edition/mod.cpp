@@ -7,8 +7,8 @@
 #include "MemAccess.h"
 #include "renderware.h"
 #include "config.h"
-#include "MenuCheese.h"
-#include "FloorAlignment.h"
+#include "advcheese.h"
+#include "stagespeedcap.h"
 #include "PtclPlay.h"
 
 // Unfrozen Title Screen
@@ -47,9 +47,13 @@ void DemoMode(bool enable)
     }
 }
 
-// Menu Prompt/Credits Text Size
+// Debug Menu Scale
+/// The debug menu text doesn't resize properly, causing them to be smaller at bigger screen resolutions.
+/////   debugcaling.h / debugcaling.cpp
+
+// Menu Prompt Text Scale
 /// The text on the menu prompts and credits don't resize properly, causing them to be smaller at bigger screen resolutions.
-//////   !!! CHECK FWS LUA SCRIPT / SOON:tm: !!!
+/////   promptcaling.h / promptcaling.cpp
 
 // Knuckles Cut-Off Line
 /// Knuckles gets cut-off by the screen fade.
@@ -58,12 +62,20 @@ void VoiceTimerRange_TSonic()
     WriteData((char*)0x7443C8, (char)0xFF);
 }
 
-// Cheese on the Main Menu
+// Cheese in Main Menu
 /// Cheese doesn't appear in the menu in every port. However, the PC port contains unused animations for his menu idling and lock-in pose.
-//////   !!! SOON:tm: !!!
+//////   advcheese.h / advcheese.cpp
 
 // Broken Env Map Lighting
 /// Environmental Maps don't get affected by stage lighting, making them still show and not blend in darker lightings.
+//////   !!! WIP !!!
+
+// Shadow Scale
+/// Shadows are weirdly small on PC, in comparison to GC port.
+//////   !!! WIP !!!
+
+// Shadow Map Resolution
+/// Enumeration for the resolution of the texture used for the shadow maps.
 //////   !!! WIP !!!
 
 // Speed Formation Damage Stun Fix
@@ -93,19 +105,19 @@ void conifg_TDarkChaosEme(TDarkChaosEme selection)
     case TDarkChaosEme::Untouched:
     default:
         // Do nothing.
-    break;
+        break;
     case TDarkChaosEme::Console:
         WriteData((char*)0x5BDE87, (char)0x05);
         WriteData((char*)0x5BDE90, (char)0x02);
         WriteData((char*)0x5BDE99, (char)0x01);
         WriteData((char*)0x5BDEA5, (char)0x00);
-    break;
+        break;
     case TDarkChaosEme::SA2:
         WriteData((char*)0x5BDE87, (char)0x05);
         WriteData((char*)0x5BDE90, (char)0x06);
         WriteData((char*)0x5BDE99, (char)0x02);
         WriteData((char*)0x5BDEA5, (char)0x01);
-    break;
+        break;
     }
 }
 
@@ -226,17 +238,25 @@ void BobCrown()
 
 // Lens Flare Size
 /// Similar to the text on menu prompts and credits, the Lens Flare doesn't resize properly, causing the object to be smaller at bigger screen resolutions.
-//////   !!! CHECK FWS LUA SCRIPT/SOON:tm: !!!
+/////   lensflarescaling.h / lensflarescaling.cpp
 
 // Stage Speed Cap
 /// Missing feature on PC, causing characters to go faster on loops.
-//////   !!! FIXED, NEED TO PULL REQ !!!
+//////   stagespeedcap.h / stagespeedcap.cpp
 
 // TXC (Texture Pattern Animation)
 /// Makes use of texture animation (similar to PS2 port) rather than indirect shaders.
 void IndirectOFF(bool enabled)
 {
     if (enabled)
+    {
+        //Laser Beam Indirect Effects
+        WriteData((char*)0x71A800, (char)0x50);
+        WriteData((char*)0x71A950, (char)0x50);
+        WriteData((char*)0x71AAA0, (char)0x50);
+        WriteData((char*)0x71AB79, (char)0x50);
+    }
+    else
     {
         WriteData((char*)0x749493, (char)0x78);
         WriteData((char*)0x76E6FA, (char)0x78);
@@ -247,14 +267,6 @@ void IndirectOFF(bool enabled)
         WriteData((char*)0x71A950, (char)0x40);
         WriteData((char*)0x71AAA0, (char)0x40);
         WriteData((char*)0x71AB79, (char)0x40);
-    }
-    else
-    {
-        //Laser Beam Indirect Effects
-        WriteData((char*)0x71A800, (char)0x50);
-        WriteData((char*)0x71A950, (char)0x50);
-        WriteData((char*)0x71AAA0, (char)0x50);
-        WriteData((char*)0x71AB79, (char)0x50);
     }
 }
 
@@ -440,6 +452,10 @@ void stg14UFO()
 /// Explosion particles are missing when defeating a boss (Egg Hawk and Egg Albatoross), present on the GameCube port.
 //////   !!! WIP !!!
 
+// Credits Scale
+/// The credits don't resize properly, causing them to be smaller at bigger screen resolutions.
+/////   staffrollscaling.h / staffrollscaling.cpp
+
 // Missing Logos on Credits
 /// ADX and SofDec logos are missing in the game's code. Adding them to the credits text file (or porting the same file from GC/XB to PC) will cause a crash.
 //////  !!! WIP !!!
@@ -457,7 +473,7 @@ void Exit(bool enabled)
     }
     else
     {
-		// Do nothing.
+        // Do nothing.
     }
 }
 
@@ -465,22 +481,27 @@ extern "C"
 {
     __declspec(dllexport) void InitMod(ConfigData* config)
     {
-        if (config->MenuCheese)
-            RestoreMenuCheese();
         TitleScr(config->TitleScr);
         DemoMode(config->DemoMode);
+        /*DebugScaling();*/
+        /*ScreenScaling();*/
+        if (config->ADV_PL_Cheese)
+            ADV_PL_Cheese();
         VoiceTimerRange_TSonic();
+
         SpdDamJmp();
-        RestorePathFloorAlignment();
         ShTornado();
         conifg_TDarkChaosEme(config->TDarkChaosEmeEnum);
         SignalFlick();
-		BobCrown();
+        BobCrown();
+        /*LensFlareScaling();*/
+        StageSpeedCap();
         IndirectOFF(config->IndirectOFF);
 		stg03Pipe();
 		stg03PipeGlass();
 		stg09RootBall();
 		stg14UFO();
+        /*StaffRollScaling();*/
 		Exit(config->Exit);
         PtclPlay();
     }

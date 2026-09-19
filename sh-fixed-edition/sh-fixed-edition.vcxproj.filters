@@ -24,10 +24,10 @@
     <ClInclude Include="MemAccess.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FloorAlignment.h">
+    <ClInclude Include="stagespeedcap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MenuCheese.h">
+    <ClInclude Include="advcheese.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="config.h">
@@ -56,10 +56,10 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FloorAlignment.cpp">
+    <ClCompile Include="stagespeedcap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuCheese.cpp">
+    <ClCompile Include="advcheese.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mod.cpp">

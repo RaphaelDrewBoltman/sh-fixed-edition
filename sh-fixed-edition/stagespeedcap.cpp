@@ -2,7 +2,7 @@
 #include "MemAccess.h"
 #include <cmath>
 #include "helper.h"
-#include "FloorAlignment.h"
+#include "stagespeedcap.h"
 
 const uintptr_t originalAlignmentFunc = 0x5937B0;
 
@@ -107,7 +107,7 @@ __declspec(naked) void AlignPathFloorHook()
 	}
 }
 
-void RestorePathFloorAlignment()
+void StageSpeedCap()
 {
 	WriteCall(reinterpret_cast<void*>(0x598416), reinterpret_cast<void*>(AlignPathFloorHook));
 	WriteCall(reinterpret_cast<void*>(0x598A52), reinterpret_cast<void*>(AlignPathFloorHook));
