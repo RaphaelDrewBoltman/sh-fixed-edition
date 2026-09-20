@@ -24,10 +24,10 @@
     <ClInclude Include="MemAccess.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FloorAlignment.h">
+    <ClInclude Include="stagespeedcap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MenuCheese.h">
+    <ClInclude Include="advcheese.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="config.h">
@@ -45,6 +45,9 @@
     <ClInclude Include="renderware.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ptclplay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -53,16 +56,19 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FloorAlignment.cpp">
+    <ClCompile Include="stagespeedcap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuCheese.cpp">
+    <ClCompile Include="advcheese.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mod.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FastFunctionHook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ptclplay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -137,12 +137,13 @@
   <ItemGroup>
     <ClInclude Include="FastFunctionHook.hpp" />
     <ClInclude Include="helper.h" />
-    <ClInclude Include="MenuCheese.h" />
+    <ClInclude Include="advcheese.h" />
     <ClInclude Include="config.h" />
-    <ClInclude Include="FloorAlignment.h" />
+    <ClInclude Include="stagespeedcap.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MemAccess.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="ptclplay.h" />
     <ClInclude Include="renderware.h" />
     <ClInclude Include="UsercallFunctionHandler.h" />
   </ItemGroup>
@@ -150,14 +151,15 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="FastFunctionHook.cpp" />
     <ClCompile Include="mod.cpp" />
-    <ClCompile Include="FloorAlignment.cpp" />
-    <ClCompile Include="MenuCheese.cpp" />
+    <ClCompile Include="stagespeedcap.cpp" />
+    <ClCompile Include="advcheese.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ptclplay.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

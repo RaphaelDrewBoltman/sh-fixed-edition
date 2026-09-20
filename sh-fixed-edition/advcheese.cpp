@@ -3,7 +3,7 @@
 #include "FastFunctionHook.hpp"
 #include "renderware.h"
 #include "helper.h"
-#include "MenuCheese.h"
+#include "advcheese.h"
 
 // Todo: more cleaning, free assets
 
@@ -113,7 +113,7 @@ static void Load()
 {
 	if (!loaded)
 	{
-		auto one = OneFileReader("playmodel/cheese.one");
+		auto one = OneFileReader("advertise/adv_pl_cheese.one");
 
 		textures = one.LoadTexDict("CHEESE.TXD");
 
@@ -200,31 +200,6 @@ static void __cdecl RenderCheese(void* player)
 
 	Call<void*>(0x64c280, root);
 	Call<int>(0x6a8660, a->hierarchy);
-
-	if (pose == 3 && a->ballAnchor)
-	{
-		// The unused story lock-in clip turns node 1 away from the viewer.
-		// Cancel that local yaw on the model root, preserving the animated tilt.
-		const float* anchor = Call<const float*>(0x64c300, a->ballAnchor);
-		float* matrix = reinterpret_cast<float*>(static_cast<char*>(root) + 0x10);
-		float x = 0, z = 0;
-		for (int axis = 0; axis < 3; ++axis) {
-			x += anchor[8 + axis] * matrix[axis];
-			z += anchor[8 + axis] * matrix[8 + axis];
-		}
-		if (x * x + z * z > 0.00000001f) {
-			const float yaw = -std::atan2(x, z), c = std::cos(yaw), s = std::sin(yaw);
-			for (int axis = 0; axis < 3; ++axis) {
-				const float right = matrix[axis], forward = matrix[8 + axis];
-				matrix[axis] = c * right - s * forward;
-				matrix[8 + axis] = s * right + c * forward;
-			}
-			reinterpret_cast<unsigned*>(matrix)[3] &= ~0x20000u;
-			Call<void*>(0x64c280, root);
-			Call<int>(0x6a8660, a->hierarchy);
-		}
-	}
-
 	Call<void*>(0x66b4f0, a->clump);
 
 	if (a->ball)
@@ -278,7 +253,7 @@ void* ADV_PLAYER__dtor_r(void* _this, int flag)
 	return ADV_PLAYER__dtor_h.Original(_this, flag);
 }
 
-void RestoreMenuCheese()
+void ADV_PL_Cheese()
 {
 	ADV_PLAYER__PDisp_h.Hook(ADV_PLAYER__PDisp_r);
 	ADV_PLAYER__ctor_h.Hook(ADV_PLAYER__ctor_r);
