@@ -4,6 +4,7 @@
 #include "advcheese.h"
 #include "stagespeedcap.h"
 #include "ptclplay.h"
+#include "ChaotixSpotlightColors.h"
 #include <iostream>
 #include <fstream>
 #include <windows.h>
@@ -120,10 +121,6 @@ void conifg_TDarkChaosEme(TDarkChaosEme selection)
         break;
     }
 }
-
-// Chaotix Recital's Wrong Spotlight Colors
-/// Spotlights for Team Chaotix's Team Blast are seemingly using one color (all purple) instead of three (purple, orange and green).
-//////   !!! WIP !!!
 
 // Fade-Out Effects
 /// Unlike on consoles, Some effects don't fade-out on PC.
@@ -489,6 +486,7 @@ extern "C"
             ADV_PL_Cheese();
         VoiceTimerRange_TSonic();
         SpdDamJmp();
+        RestoreChaotixSpotlightColors();
         ShTornado();
         conifg_TDarkChaosEme(config->TDarkChaosEmeEnum);
         SignalFlick();

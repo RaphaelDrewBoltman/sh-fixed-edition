@@ -139,6 +139,7 @@
     <ClInclude Include="helper.h" />
     <ClInclude Include="advcheese.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="ChaotixSpotlightColors.h" />
     <ClInclude Include="stagespeedcap.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MemAccess.h" />
@@ -151,6 +152,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="FastFunctionHook.cpp" />
     <ClCompile Include="mod.cpp" />
+    <ClCompile Include="ChaotixSpotlightColors.cpp" />
     <ClCompile Include="stagespeedcap.cpp" />
     <ClCompile Include="advcheese.cpp" />
     <ClCompile Include="pch.cpp">
