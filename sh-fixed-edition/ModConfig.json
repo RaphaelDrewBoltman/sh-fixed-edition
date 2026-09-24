@@ -6,63 +6,16 @@
   "ModDescription": "Compilation of code-based fixes and improvements regarding graphical/gameplay bugs and overall broken code for Sonic Heroes, alongside model/texture fixes.",
   "ModDll": "",
   "ModIcon": "preview.png",
-  "ModR2RManagedDll32": "",
-  "ModR2RManagedDll64": "",
   "ModNativeDll32": "sh-fixed-edition.dll",
   "ModNativeDll64": "",
-  "Tags": [],
-  "CanUnload": false,
-  "HasExports": false,
   "IsLibrary": false,
   "ReleaseMetadataFileName": "sonicheroes.utils.fixededition.ReleaseMetadata.json",
-  "IgnoreRegexes": [
-    ".*\\.json"
-  ],
-  "IncludeRegexes": [
-    "\\.deps\\.json",
-    "\\.runtimeconfig\\.json",
-    "ModConfig\\.json"
-  ],
-  "PluginData": {
-    "GameBananaDependencies": {
-      "IdToConfigMap": {
-        "reloaded.universal.redirector": {
-          "Config": {
-            "ItemType": "Mod",
-            "ItemId": 51225
-          },
-          "ReleaseMetadataName": "Reloaded.Universal.Redirector.ReleaseMetadata.json"
-        }
-      }
-    },
-    "GitHubDependencies": {
-      "IdToConfigMap": {
-        "reloaded.sharedlib.hooks": {
-          "Config": {
-            "UserName": "Sewer56",
-            "RepositoryName": "Reloaded.SharedLib.Hooks.ReloadedII",
-            "UseReleaseTag": true,
-            "AssetFileName": "reloaded.sharedlib.hooks.zip"
-          },
-          "ReleaseMetadataName": "Sewer56.Update.ReleaseMetadata.json"
-        },
-        "reloaded.universal.redirector": {
-          "Config": {
-            "UserName": "Reloaded-Project",
-            "RepositoryName": "Reloaded.Universal.Redirector",
-            "UseReleaseTag": false,
-            "AssetFileName": ""
-          },
-          "ReleaseMetadataName": "Reloaded.Universal.Redirector.ReleaseMetadata.json"
-        }
-      }
-    }
-  },
+  "PluginData": {},
   "IsUniversalMod": false,
   "ModDependencies": [
-    "reloaded.sharedlib.hooks",
+    "reloaded.universal.fileemulationframework.heroes.one",
     "reloaded.universal.redirector"
-  ],
+],
   "OptionalDependencies": [],
   "SupportedAppId": [
     "tsonic_win.exe"
