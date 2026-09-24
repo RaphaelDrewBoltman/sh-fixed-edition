@@ -1,15 +1,16 @@
 #include "pch.h"
+#include "ReloadedModConfig.h"
 #include "MemAccess.h"
 #include "config.h"
 #include "advcheese.h"
 #include "stagespeedcap.h"
 #include "ptclplay.h"
-#include <iostream>
-#include <fstream>
-#include <windows.h>
-#include <fcntl.h>
-#include <io.h>
 
+const char* DarkChaosEmeEnumMembers[] = {
+    "Untouched",
+    "Console",
+    "SA2"
+};
 
 // Unfrozen Title Screen
 /// Makes the title screen animation continuous instead of freezing after pressing START Button/ENTER Key.
@@ -61,10 +62,6 @@ void VoiceTimerRange_TSonic()
 {
     WriteData((char*)0x7443C8, (char)0xFF);
 }
-
-// Cheese in Main Menu
-/// Cheese doesn't appear in the menu in every port. However, the PC port contains unused animations for his menu idling and lock-in pose.
-//////   advcheese.h / advcheese.cpp
 
 // Broken Env Map Lighting
 /// Environmental Maps don't get affected by stage lighting, making them still show and not blend in darker lightings.
@@ -477,31 +474,47 @@ void Exit(bool enabled)
     }
 }
 
-extern "C"
+static void InitMod()
 {
-    __declspec(dllexport) void InitMod(ConfigData* config)
-    {
-        TitleScr(config->TitleScr);
-        DemoMode(config->DemoMode);
-        /*DebugScaling();*/
-        /*ScreenScaling();*/
-        if (config->ADV_PL_Cheese)
-            ADV_PL_Cheese();
-        VoiceTimerRange_TSonic();
-        SpdDamJmp();
-        ShTornado();
-        conifg_TDarkChaosEme(config->TDarkChaosEmeEnum);
-        SignalFlick();
-        BobCrown();
-        /*LensFlareScaling();*/
-        StageSpeedCap();
-        IndirectOFF(config->IndirectOFF);
-        stg03Pipe();
-        stg03PipeGlass();
-        stg09RootBall();
-        stg14UFO();
-        PtclPlay();
-        /*StaffRollScaling();*/
-        Exit(config->Exit);
-    }
+    ConfigData config{};
+
+    auto& user = reloaded::config();
+    config.TitleScr = user.get_bool("TitleScr", config.TitleScr);
+    config.DemoMode = user.get_bool("DemoMode", config.DemoMode);
+    config.ADV_PL_Cheese = user.get_bool("ADV_PL_Cheese", config.ADV_PL_Cheese);
+    config.TDarkChaosEmeEnum = (TDarkChaosEme)user.get_enum("TDarkChaosEmeEnum", DarkChaosEmeEnumMembers, 3, (int)config.TDarkChaosEmeEnum);
+    config.IndirectOFF = user.get_bool("IndirectOFF", config.IndirectOFF);
+    config.Exit = user.get_bool("Exit", config.Exit);
+
+    TitleScr(config.TitleScr);
+    DemoMode(config.DemoMode);
+    /*DebugScaling();*/
+    /*ScreenScaling();*/
+    if (config.ADV_PL_Cheese)
+        ADV_PL_Cheese();
+    VoiceTimerRange_TSonic();
+    SpdDamJmp();
+    ShTornado();
+    conifg_TDarkChaosEme(config.TDarkChaosEmeEnum);
+    SignalFlick();
+    BobCrown();
+    /*LensFlareScaling();*/
+    StageSpeedCap();
+    IndirectOFF(config.IndirectOFF);
+    stg03Pipe();
+    stg03PipeGlass();
+    stg09RootBall();
+    stg14UFO();
+    PtclPlay();
+    /*StaffRollScaling();*/
+    Exit(config.Exit);
+}
+
+// ReloadedEx entry point with config support
+RELOADED_MOD_CONFIG_IMPL(InitMod)
+
+// Reloaded entry point without config support, used for backward compatibility with older versions of Reloaded II
+extern "C" __declspec(dllexport) void __cdecl ReloadedStart()
+{
+    InitMod();
 }

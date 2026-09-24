@@ -7,10 +7,10 @@ enum class TDarkChaosEme {
 };
 
 struct ConfigData {
-	bool TitleScr;
-	bool DemoMode;
-	bool ADV_PL_Cheese;
+	bool TitleScr = true;
+	bool DemoMode = true;
+	bool ADV_PL_Cheese = true;
 	TDarkChaosEme TDarkChaosEmeEnum = TDarkChaosEme::Untouched;
-	bool IndirectOFF;
-	bool Exit;
+	bool IndirectOFF = false;
+	bool Exit = true;
 };

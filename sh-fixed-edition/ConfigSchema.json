@@ -1,0 +1,69 @@
+{
+  "Configurations": [
+    {
+      "FileName": "Config.json",
+      "DisplayName": "Default Config",
+      "Properties": [
+        {
+          "Name": "TitleScr",
+          "Type": "bool",
+          "DisplayName": "Unfrozen Title Screen",
+          "Description": "Makes the title screen animation continuous instead of freezing after\n pressing START Button/ENTER Key.",
+          "Category": "Common Settings",
+          "Order": 0,
+          "DefaultValue": true
+        },
+		{
+          "Name": "DemoMode",
+          "Type": "bool",
+          "DisplayName": "Demo Gameplay",
+          "Description": "Enables Demo Mode that is leftover in the Windows port of the game.\nGameCube and PlayStation ports contain Demo Gameplay by default.",
+          "Category": "Common Settings",
+          "Order": 0,
+          "DefaultValue": true
+        },
+		{
+          "Name": "Exit",
+          "Type": "bool",
+          "DisplayName": "No Exit Prompt",
+          "Description": "Remove prompt when trying to exit the game.",
+          "Category": "Common Settings",
+          "Order": 0,
+          "DefaultValue": true
+        },
+        {
+          "Name": "TDarkChaosEmeEnum",
+          "Type": "enum",
+          "DisplayName": "Shadow's Chaos Emerald",
+          "Description": "Chaos Emerald from Chaos Inferno has different blendings\n compared to other ports. Not to mention its model and\n blendings are completely different from SA2.\n\n'Console Style' brings the same blendings as GC/XB/PS.\n'SA2 Style' brings a similar approach to SA2's emeralds.\n\nNote: Now the emerald's model by default is changed to\n use SA2's model as well.",
+          "Category": "Character Settings",
+          "Order": 0,
+          "DefaultValue": "Untouched",
+          "Values": [
+            "Untouched",
+            { "Name": "Console", "DisplayName": "Console Style" },
+            { "Name": "SA2", "DisplayName": "Sonic Adventure 2 Style" }
+          ]
+        },
+		{
+          "Name": "ADV_PL_Cheese",
+          "Type": "bool",
+          "DisplayName": "Show Cheese in menus",
+          "Description": "Display Cheese in Team Selection Menus.",
+          "Category": "Character Settings",
+          "Order": 0,
+          "DefaultValue": true
+        },
+		{
+          "Name": "IndirectOFF",
+          "Type": "bool",
+          "DisplayName": "Disable Indirect Shaders",
+          "Description": "Use texture pattern animation (TXC, also similar to PS2 port)\ninstead of indirect shaders.",
+          "Category": "Stage Settings",
+          "Order": 0,
+          "DefaultValue": false
+        }
+      ]
+    }
+  ]
+}

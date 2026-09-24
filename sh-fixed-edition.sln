@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36705.20 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.10.12210.168 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sh-fixed-edition", "sh-fixed-edition\sh-fixed-edition.vcxproj", "{9F6DCBD1-F175-4290-BF84-1F4D57776ADA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bridge", "bridge\bridge.csproj", "{167CB672-F57B-4970-B17A-E2D1241170FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,18 +27,6 @@ Global
 		{9F6DCBD1-F175-4290-BF84-1F4D57776ADA}.Release|x64.Build.0 = Release|x64
 		{9F6DCBD1-F175-4290-BF84-1F4D57776ADA}.Release|x86.ActiveCfg = Release|Win32
 		{9F6DCBD1-F175-4290-BF84-1F4D57776ADA}.Release|x86.Build.0 = Release|Win32
-		{167CB672-F57B-4970-B17A-E2D1241170FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{167CB672-F57B-4970-B17A-E2D1241170FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{167CB672-F57B-4970-B17A-E2D1241170FB}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{167CB672-F57B-4970-B17A-E2D1241170FB}.Debug|x64.Build.0 = Debug|Any CPU
-		{167CB672-F57B-4970-B17A-E2D1241170FB}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{167CB672-F57B-4970-B17A-E2D1241170FB}.Debug|x86.Build.0 = Debug|Any CPU
-		{167CB672-F57B-4970-B17A-E2D1241170FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{167CB672-F57B-4970-B17A-E2D1241170FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{167CB672-F57B-4970-B17A-E2D1241170FB}.Release|x64.ActiveCfg = Release|Any CPU
-		{167CB672-F57B-4970-B17A-E2D1241170FB}.Release|x64.Build.0 = Release|Any CPU
-		{167CB672-F57B-4970-B17A-E2D1241170FB}.Release|x86.ActiveCfg = Release|Any CPU
-		{167CB672-F57B-4970-B17A-E2D1241170FB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
