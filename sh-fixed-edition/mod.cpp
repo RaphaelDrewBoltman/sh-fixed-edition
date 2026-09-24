@@ -5,6 +5,7 @@
 #include "advcheese.h"
 #include "stagespeedcap.h"
 #include "ptclplay.h"
+#include "chaotixspotlight.h"
 
 const char* DarkChaosEmeEnumMembers[] = {
     "Untouched",
@@ -458,7 +459,6 @@ void stg14UFO()
 //////  !!! WIP !!!
 
 // No Exit Prompt
-/// Kell is a God.
 void Exit(bool enabled)
 {
     if (enabled)
@@ -508,6 +508,7 @@ static void InitMod()
     PtclPlay();
     /*StaffRollScaling();*/
     Exit(config.Exit);
+    ChaotixSpotlight();
 }
 
 // ReloadedEx entry point with config support

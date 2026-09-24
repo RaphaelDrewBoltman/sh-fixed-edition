@@ -137,6 +137,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="chaotixspotlight.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="FastFunctionHook.hpp" />
     <ClInclude Include="helper.h" />
@@ -151,6 +152,7 @@
     <ClInclude Include="UsercallFunctionHandler.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="chaotixspotlight.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="FastFunctionHook.cpp" />
     <ClCompile Include="mod.cpp" />

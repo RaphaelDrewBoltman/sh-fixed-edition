@@ -48,6 +48,7 @@ UserpurgeFunc(RpClump*, ONEFILE__LoadClump, (int id, void* dest, ONEFILE* _this)
 UserpurgeFunc(RwTexDictionary*, ONEFILE__LoadTexDictionary, (int id, void* dest, ONEFILE* _this), (id, dest, _this), 0x42F3C0, rEAX, rEAX, rECX, stack4);
 UserpurgeFunc(RtAnimAnimation*, ONEFILE__LoadAnimation, (int id, void* dest, ONEFILE* _this), (id, dest, _this), 0x42F600, rEAX, rEAX, rECX, stack4);
 UsercallFunc(RwInt32, LoadFile, (RwChar* fname, void* buff), (fname, buff), 0x41BDB0, rEAX, rEAX, stack4);
+FunctionPointer(RpAtomic*, objRpAtomicSetGeometryFlagToModulateMaterialColor, (RpAtomic*, void*), 0x42C0F0);
 
 class OneFileReader
 {
